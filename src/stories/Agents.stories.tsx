@@ -86,7 +86,7 @@ const drawHullWithAttached = (
 
 export const HullWithAssembler: HullWithAssemblerStory = {
   args: {
-    hullCapacity: 100,
+    hullCapacity: 200,
     assemblerCount: 1,
     firstAssemblerPower: 1,
     renderFunction(
@@ -173,7 +173,7 @@ export const HullWithAssembler: HullWithAssemblerStory = {
 
 export const HullWithComputer: HullWithComputerStory = {
   args: {
-    hullCapacity: 100,
+    hullCapacity: 200,
     computerCount: 1,
     firstComputerPower: 1,
     renderFunction(
@@ -268,7 +268,7 @@ export const HullWithComputer: HullWithComputerStory = {
 
 export const HullWithBoth: HullWithBothStory = {
   args: {
-    hullCapacity: 100,
+    hullCapacity: 200,
     assemblerCount: 1,
     computerCount: 1,
     renderFunction(

@@ -40,7 +40,6 @@ export const drawPillShape = (
     // 左の半円
     graphics.arc(x - halfWidth, y, radius, Math.PI / 2, Math.PI * 1.5)
     // 上の直線
-    graphics.moveTo(x - halfWidth, y - radius)
     graphics.lineTo(x + halfWidth, y - radius)
     // 右の半円
     graphics.arc(x + halfWidth, y, radius, -Math.PI / 2, Math.PI / 2)
@@ -227,7 +226,8 @@ export const drawObject = (
 
       // Pill shapeを描画
       drawPillShape(graphics, 0, 0, width, height)
-      graphics.fill(0xa9a9a9)
+      graphics.fill(0x101010)
+      graphics.stroke({ width: 4, color: 0x2c3e50, alpha: 1 })
 
       // HP減少時は縁に赤み
       const healthRatio = hull.currentEnergy / hull.buildEnergy
@@ -352,10 +352,10 @@ export const drawObject = (
       break
     }
 
-    default:
-      // 未定義のタイプは灰色の円
-      graphics.circle(0, 0, gameObject.radius)
-      graphics.fill(0x808080)
-      graphics.stroke({ width: 1, color: 0x404040 })
+    default: {
+      // @ts-expect-error TS6133: '_' is declared but its value is never read.
+      const _: never = gameObject.type
+      break
+    }
   }
 }
